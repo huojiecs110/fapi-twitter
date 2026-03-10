@@ -20,8 +20,7 @@
 4. **可选参数**，用户在需要发推、拉黑等写操作时才提供 （不鼓励直接粘贴到聊天中）
    openclaw config set skills.entries.fapi-twitter.auth_token "你的auth_token（从登录API或 https://x.com/good6_api/status/1812496182213845482 获取）"
    openclaw config set skills.entries.fapi-twitter.ct0 "你的ct0（可选）"
-或者直接在聊天里说：
-“我的 fapi apiKey 是 xxx，我的 auth_token 是 yyy”
+5. **不建议** 直接在聊天里说：“我的 fapi apiKey 是 xxx，我的 auth_token 是 yyy” ，防止被聊天记录
 
 ## 核心调用规则（小龙虾必须严格遵守）
 1. **每次行动前** 先调用余额查询接口，检查积分是否足够
