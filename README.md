@@ -17,6 +17,7 @@
 2. 在仪表盘生成 **API Key**（建议命名为 “OpenClaw 小龙虾”）
 3. 在 OpenClaw 中设置（强烈推荐）：
    openclaw config set skills.entries.fapi-twitter.apiKey "你的完整apiKey"
+4. **可选参数**，用户在需要发推、拉黑等写操作时才提供 （不鼓励直接粘贴到聊天中）
    openclaw config set skills.entries.fapi-twitter.auth_token "你的auth_token（从登录API或 https://x.com/good6_api/status/1812496182213845482 获取）"
    openclaw config set skills.entries.fapi-twitter.ct0 "你的ct0（可选）"
 或者直接在聊天里说：
@@ -24,11 +25,12 @@
 
 ## 核心调用规则（小龙虾必须严格遵守）
 1. **每次行动前** 先调用余额查询接口，检查积分是否足够
-2. 所有请求 **必须** 在url 参数中携带 apiKey`
-3. 大部分写操作需要 `auth_token` 和 `ct0` 参数
+2. 所有请求 **必须** 带 Header：`Authorization: Bearer {{apiKey}}`
+3. 只有写操作才需要 `auth_token` 和 `ct0` 参数
 4. 积分不足时**立即停止**，回复用户并给出充值链接
 5. 返回结果后，用**自然流畅的中文**总结关键信息，不要直接贴原始 JSON（用户要求“原始数据”时再给）
 6. 支持 proxyUrl 参数（需要时可问用户要代理）
+
 
 ## 主要功能模块（小龙虾会自动选择对应接口）
 
